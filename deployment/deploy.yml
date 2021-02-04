@@ -1,0 +1,31 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: chaos-3-{{ENVIRONMENT}}
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: chaos-3-{{ENVIRONMENT}}
+  template:
+    metadata:
+      labels:
+        app: chaos-3-{{ENVIRONMENT}}
+    spec:
+      containers:
+      - name: deployment-develop-3
+        image: eu.gcr.io/yotta-square-ml3/{{CI_PROJECT_NAME}}:{{TAG}}
+        imagePullPolicy: Always
+        ports:
+        - containerPort: 8000
+        volumeMounts:
+        - name: secrets
+          mountPath: /secrets
+          readOnly: true
+        env: 
+        - name: YOTTA_ML3_CONFIGURATION_PATH
+          value: "/secrets/config.yml"
+      volumes:
+      - name: secrets
+        secret:
+          secretName: chaos-secrets-3

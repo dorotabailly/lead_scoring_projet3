@@ -1,0 +1,26 @@
+============================= test session starts ==============================
+platform linux -- Python 3.8.5, pytest-6.2.1, py-1.10.0, pluggy-0.13.1
+rootdir: /home/dorota/Documents/yotta/projet3_devops/chaos-3
+plugins: cov-2.10.1
+collected 12 items
+
+src/test/unit/domain/test_features_eng.py .....                          [ 41%]
+src/test/unit/infrastructure/test_cleaning.py .......                    [100%]
+
+----------- coverage: platform linux, python 3.8.5-final-0 -----------
+Name                                            Stmts   Miss  Cover   Missing
+-----------------------------------------------------------------------------
+src/domain/features_eng.py                         83     21    75%   19, 97, 125, 128, 131, 140-141, 145-152, 163-173
+src/infrastructure/cleaning.py                     49      1    98%   53
+src/settings/base.py                               12      0   100%
+src/settings/column_names.py                       37      0   100%
+src/test/unit/application/test_server.py            0      0   100%
+src/test/unit/application/test_train.py             0      0   100%
+src/test/unit/domain/test_features_eng.py          61      0   100%
+src/test/unit/domain/test_lead.py                   0      0   100%
+src/test/unit/infrastructure/test_cleaning.py      63      5    92%   240-244
+-----------------------------------------------------------------------------
+TOTAL                                             305     27    91%
+
+
+============================== 12 passed in 1.80s ==============================
